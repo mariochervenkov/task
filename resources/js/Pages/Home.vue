@@ -1,6 +1,6 @@
 <template>
     <App>
-        <div id="home-banner" class="w-100 position-relative">
+        <div id="home-banner" class="w-100 position-relative overflow-hidden">
             <div class="hotpoint-wrapper" v-for="hotpoint in hotpoints" :style="{ left: hotpoint.position_x + 'px', top: hotpoint.position_y + 'px'}">
                 <i tabindex="0" :id="'hotpoint-popover-' + hotpoint.id" class="icon pulsing hotpoint-popover">x</i>
             </div>
@@ -20,7 +20,7 @@ export default {
         this.hotpoints.forEach((obj, index) => {
 
             const rating = this.getRating(obj.product.rating)
-            console.log(rating)
+
             new bootstrap.Popover(document.querySelector('#hotpoint-popover-' + obj.id), {
                 html: true,
                 content: function() {

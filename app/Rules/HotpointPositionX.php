@@ -9,10 +9,12 @@ use Illuminate\Contracts\Validation\ValidationRule;
 class HotpointPositionX implements ValidationRule
 {
     private int|null $id;
+    private int|null $y;
 
-    public function __construct(int|null $id)
+    public function __construct(int|null $id, int|null $y)
     {
         $this->id = $id;
+        $this->y = $y;
     }
 
     /**
@@ -35,10 +37,14 @@ class HotpointPositionX implements ValidationRule
     {
         $xBufferMax = $value + Hotpoint::BUFFER;
         $xBufferMin = $value >= Hotpoint::BUFFER ? $value - Hotpoint::BUFFER : 0;
+        $yBufferMax = $this->y + Hotpoint::BUFFER;
+        $yBufferMin = $this->y >= Hotpoint::BUFFER ? $this->y - Hotpoint::BUFFER : 0;
 
         $query = Hotpoint::query()
-            ->where('position_x', '<=', $xBufferMax)
-            ->where('position_x', '>=', $xBufferMin);
+            ->where('position_x', '<', $xBufferMax)
+            ->where('position_x', '>', $xBufferMin)
+            ->where('position_y', '<', $yBufferMax)
+            ->where('position_y', '>', $yBufferMin);
 
         if($this->id) {
             $query->where('id', '!=', $this->id);

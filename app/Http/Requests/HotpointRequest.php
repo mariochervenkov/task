@@ -36,13 +36,13 @@ class HotpointRequest extends FormRequest
                 'required',
                 'numeric',
                 'between:0,4000',
-                new HotpointPositionX($hotpointId)
+                new HotpointPositionX($hotpointId, $this->request->get('position_y'))
             ],
             'position_y' => [
                 'required',
                 'numeric',
                 'between:0,4000',
-                new HotpointPositionY($hotpointId)
+                new HotpointPositionY($hotpointId, $this->request->get('position_x'))
             ],
             'product_id' => [
                 'required',

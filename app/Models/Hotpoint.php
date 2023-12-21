@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Hotpoint extends Model
 {
-    public const BUFFER = 80;
+    public const BUFFER = 100;
 
     use HasFactory;
 
