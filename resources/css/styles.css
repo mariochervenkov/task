@@ -23,7 +23,7 @@
     cursor: pointer;
     color: white;
     font-weight: bold;
-    line-height: 68px;
+    line-height: 75px;
 }
 
 .icon:hover:after {
@@ -69,4 +69,8 @@
 
 .fa-star-checked {
     color: #b5af3e;
+}
+
+.icon.pulsing:hover {
+    color: white;
 }

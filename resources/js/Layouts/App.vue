@@ -1,8 +1,8 @@
 <template>
     <v-app>
         <v-app-bar :elevation="20">
-            <v-btn @click.prevent.stop="navigate('home')" text="Home"></v-btn>
-            <v-btn @click.prevent.stop="navigate('hotpoints.index')" text="Hotpoints"></v-btn>
+            <v-btn @click="navigate('home')" text="Home"></v-btn>
+            <v-btn @click="navigate('hotpoints.index')" text="Hotpoints"></v-btn>
         </v-app-bar>
         <slot></slot>
     </v-app>
@@ -18,7 +18,7 @@ export default {
         navigate(routeName) {
             router.get(route(routeName));
         }
-    }
+    },
 }
 </script>
 

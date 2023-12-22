@@ -10,14 +10,14 @@
             </v-alert>
 
             <v-card class="pa-4">
-                <v-btn @click.prevent.stop="create" color="green" width="auto" class="mb-2">
+                <v-btn @click="create" color="green" width="auto" class="mb-2">
                     Create Hotpoint
                 </v-btn>
                 <v-data-table :headers="headers" :items="hotpoints">
                     <template v-slot:item.actions="{ item }">
                         <div class="d-flex">
-                            <v-btn class="me-2" @click.prevent.stop="edit(item.id)" color="blue" text="Edit"></v-btn>
-                            <v-btn color="red" @click.prevent.stop="destroy(item.id)" text="Delete"></v-btn>
+                            <v-btn class="me-2" @click="edit(item.id)" color="blue" text="Edit"></v-btn>
+                            <v-btn color="red" @click="destroy(item.id)" text="Delete"></v-btn>
                         </div>
                     </template>
                 </v-data-table>

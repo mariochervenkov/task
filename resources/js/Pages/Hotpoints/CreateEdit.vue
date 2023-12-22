@@ -42,7 +42,7 @@
                 ></v-select>
                 <div class="mb-2 text-danger" v-if="form.errors.product_id">{{ form.errors.product_id[0] }}</div>
                 <div class="d-flex justify-content-between mt-5">
-                    <v-btn @click.prevent.stop="back">Cancel</v-btn>
+                    <v-btn @click="back">Cancel</v-btn>
                     <v-btn type="submit" color="green">{{ label }}</v-btn>
                 </div>
             </form>
